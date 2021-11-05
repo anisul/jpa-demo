@@ -1,15 +1,12 @@
 package com.example.jpademo.domain;
 
 import com.example.jpademo.type.JsonObjectConverter;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import com.example.jpademo.type.ValidLanguage;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
-import org.json.JSONObject;
 
 import javax.persistence.*;
-import java.io.IOException;
 import java.util.List;
 
 @Entity
@@ -27,5 +24,6 @@ public class User {
     @NonNull
     @Column(columnDefinition = "TEXT")
     @Convert(converter = JsonObjectConverter.class)
+    @ValidLanguage
     private List<String> languages;
 }
